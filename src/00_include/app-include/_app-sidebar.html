@@ -1,0 +1,46 @@
+<% const activeSubNav = locals.activeSubNav ? locals.activeSubNav : 'color' %>
+<div class="app-sidebar app-sidebar-content">
+  <div class="app-sidebar-inner">
+    <!-- app-sidebar-box -->
+    <div class="app-sidebar-box app-switch-theme">
+      <div class="app-sidebar-header">
+        <span>Select Theme</span>
+      </div>
+      <ul class="app-sidebar-nav-item">
+        <li><button type="button" data-val="default"><span>default</span></button></li>
+        <li><button type="button" data-val="dark-theme"><span>dark</span></button></li>
+      </ul>
+    </div>
+    <!-- // app-sidebar-box -->
+
+    <!-- app-sidebar-box -->
+    <div class="app-sidebar-box">
+      <div class="app-sidebar-header">
+        <span>Preview Lists</span>
+      </div>
+      <ul class="app-sidebar-nav-item">
+        <li><a href="/html/color.html" <% if(activeSubNav == 'color') {%>class="is-active"<% } %>><span>Color</span></a></li>
+        <li><a href="/html/button.html" <% if(activeSubNav == 'button') {%>class="is-active"<% } %>><span>Button</span></a></li>
+        <li><a href="/html/button-group.html" <% if(activeSubNav == 'button-group') {%>class="is-active"<% } %>><span>Button Group</span></a></li>
+        <li><a href="/html/space.html" <% if(activeSubNav == 'space') {%>class="is-active"<% } %>><span>Space</span></a></li>
+        <li><a href="/html/shadow.html" <% if(activeSubNav == 'shadow') {%>class="is-active"<% } %>><span>Shadow</span></a></li>
+        <li><a href="/html/heading.html" <% if(activeSubNav == 'heading') {%>class="is-active"<% } %>><span>Heading</span></a></li>
+        <li><a href="/html/typography.html" <% if(activeSubNav == 'typography') {%>class="is-active"<% } %>><span>Typography</span></a></li>
+        <li><a href="/html/border-radius.html" <% if(activeSubNav == 'border-radius') {%>class="is-active"<% } %>><span>Border Radius</span></a></li>
+      </ul>
+    </div>
+    <!-- // app-sidebar-box -->
+
+    <!-- app-sidebar-box -->
+    <div class="app-sidebar-box app-component-box">
+      <div class="app-sidebar-header">
+        <span>Components Lists</span>
+      </div>
+      <ul class="app-sidebar-nav-item">
+        <li><a href="/html/010_checkbox/010_checkbox.html" <% if(activeSubNav == 'component-checkbox') {%>class="is-active"<% } %>>checkbox</a></li>
+        <li><a href="/html/020_radio/020_radio.html" <% if(activeSubNav == 'component-radio') {%>class="is-active"<% } %>>radio</a></li>
+      </ul>
+    </div>
+    <!-- // app-sidebar-box -->
+  </div>
+</div>

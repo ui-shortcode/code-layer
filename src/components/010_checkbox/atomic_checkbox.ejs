@@ -1,0 +1,15 @@
+<% const onlyCheckbox = locals.onlyCheckbox ? locals.onlyCheckbox : false %>
+<% const lists = locals.lists ? locals.lists : ['Apple', 'Banana', 'Cherry'] %>
+
+<% lists.forEach(function(list) {%>
+  <div class="field field-checkbox">
+    <input 
+      type="checkbox" 
+      class="checkbox" 
+      id="<%= list.replace(/\s+/g, '').toLowerCase() %>" 
+      aria-checked="false"
+      <% if (onlyCheckbox) {%>aria-label=<%= list %><%}%>
+    >
+    <label id="<%= list.replace(/\s+/g, '').toLowerCase() %>-label" for="<%= list.replace(/\s+/g, '').toLowerCase() %>"><span class="text <% if(onlyCheckbox) {%>sr-hide<%}%>"><%= list %></span></label>
+  </div>
+<% }) %>

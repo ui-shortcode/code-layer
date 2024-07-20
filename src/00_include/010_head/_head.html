@@ -1,0 +1,27 @@
+<% const documentTitle = locals.documentTitle ? locals.documentTitle : '' %>
+<% const bodyClass = locals.bodyClass ? locals.bodyClass : '' %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= documentTitle %></title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <% if (bodyClass == 'app-view') { %>
+  <link rel="stylesheet" href="../assets/css/style-guide.css">
+  <% } else if (bodyClass == 'components-view') { %>
+  <link rel="stylesheet" href="../../assets/css/style-guide.css">
+  <% } %>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  
+
+  <% if (bodyClass=='components-view' ) { %>
+  <script src="../../assets/js/ui.js"></script>
+  <% } else { %>
+  <script src="../assets/js/ui.js"></script>
+  <% } %>
+</head>
+
+<body <% if(bodyClass != '') {%>class=<%=bodyClass%><%}%>>

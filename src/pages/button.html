@@ -1,0 +1,65 @@
+<%- include('../00_include/app-include/_app-container-header.html', { documentTitle : 'Button', activeSubNav : 'button', bodyClass: 'app-view' }) %>
+
+    <div class="app-button-list">
+        <% const buttonLists = ['primary','secondary','success','focus', 'danger','warning']; %>
+        <% for(var i = 0; i < buttonLists.length; i++) {%>
+        <div class="app-preview-inner">
+            <h2 class="app-preview-title"><%= buttonLists[i] %></h2>
+            <div class="app-preview-item">
+                <div class="app-preview">
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm"><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm btn-outlined"><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm btn-outlined"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm btn-icon-right"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm btn-outlined btn-icon-right"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm" disabled><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm btn-outlined" disabled><span class='btn-label'><%= buttonLists[i] %></span></button>
+                </div>
+            </div>
+            <div class="app-preview-item">
+                <div class="app-preview">
+                    <button type="button" class="btn btn-<%= buttonLists[i] %>"><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-outlined"><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %>"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-outlined"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %>" disabled><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-outlined" disabled><span class='btn-label'><%= buttonLists[i] %></span></button>
+                </div>
+            </div>
+            <div class="app-preview-item">
+                <div class="app-preview">
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-lg"><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-lg btn-outlined"><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-lg"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-lg btn-outlined"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-lg" disabled><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-lg btn-outlined" disabled><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                </div>
+            </div>
+            <div class="app-preview-item">
+                <div class="app-preview">
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm btn-text"><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm btn-text"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-text"><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-text"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-lg btn-text"><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-lg btn-text"><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                </div>
+            </div>
+            <div class="app-preview-item">
+                <div class="app-preview">
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm btn-text" disabled><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-sm btn-text" disabled><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-text" disabled><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-text" disabled><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-lg btn-text" disabled><span class='btn-label'><%= buttonLists[i] %></span></button>
+                    <button type="button" class="btn btn-<%= buttonLists[i] %> btn-size-lg btn-text" disabled><i aria-hidden="true" class='bx bx-cube-alt'></i><span class='btn-label'><%= buttonLists[i] %></span></button>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    
+<%- include('../00_include/app-include/_app-container-footer.html') %>

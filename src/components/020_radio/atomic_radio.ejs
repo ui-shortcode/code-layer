@@ -1,0 +1,17 @@
+<% const onlyRadio = locals.onlyRadio ? locals.onlyRadio : false %>
+<% const radioName = locals.radioName ? locals.radioName : 'test' %>
+<% const lists = locals.lists ? locals.lists : ['Apple', 'Banana' , 'Cherry' ] %>
+
+<% lists.forEach(function(list) {%>
+  <div class="field field-radio">
+    <input 
+      type="radio" 
+      class="radio" 
+      id="<%= list.replace(/\s+/g, '').toLowerCase() %>" 
+      aria-checked="false"
+      name="<%= radioName %>" 
+      <% if (onlyRadio) {%>aria-label=<%= list %><%}%>
+    >
+    <label id="<%= list.replace(/\s+/g, '').toLowerCase() %>-label" for="<%= list.replace(/\s+/g, '').toLowerCase() %>"><span class="text <% if(onlyRadio) {%>sr-hide<%}%>"><%= list %></span></label>
+  </div>
+  <% }) %>

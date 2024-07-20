@@ -1,0 +1,54 @@
+@use "../../assets/scss/config" as *;
+
+.field-checkbox {
+  --checkbox-size: 18px;
+  --checkbox-border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .checkbox {
+    position: absolute;
+    opacity: 0;
+
+    & + label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      user-select: none;
+      cursor: pointer;
+      padding-left: calc(var(--checkbox-size) + var(--space-3xs));
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: calc(var(--checkbox-size) * -0.5);
+        display: inline-block;
+        vertical-align: middle;
+        width: var(--checkbox-size);
+        height: var(--checkbox-size);
+        border: 1px solid rgba(var(--color-contrast-low-rgb), 0.65);
+        border-radius: var(--checkbox-border-radius);
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: background 0.2s, border 0.2s;
+      }
+    }
+
+    &:checked + label {
+      &::before {
+        border-color: var(--color-primary);
+        background-color: var(--color-primary);
+        box-shadow: var(--shadow-xs);
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMicgaGVpZ2h0PScxMicgdmlld0JveD0nMCAwIDEyIDEyJz48cG9seWxpbmUgcG9pbnRzPScxIDYuNSA0IDkuNSAxMSAyLjUnIGZpbGw9J25vbmUnIHN0cm9rZT0nI0ZGRkZGRicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJyBzdHJva2Utd2lkdGg9JzInLz48L3N2Zz4=);
+        background-size: calc(var(--checkbox-size) * 0.6);
+      }
+    }
+  }
+
+  & + .field-checkbox {
+    margin-left: var(--space-xs);
+  }
+}

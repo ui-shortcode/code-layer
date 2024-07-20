@@ -1,0 +1,203 @@
+@use "./config" as *;
+@use "sass:math";
+@use "sass:string";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+
+.btn {
+  --color-btn-line: var(--color-primary);
+  --color-btn-text: var(--color-white);
+  --color-btn-bg: var(--color-primary);
+  --color-btn-hover-bg: var(--color-primary-darker);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text);
+  appearance: none;
+  font-size: var(--text-sm);
+  padding: var(--space-2xs) var(--space-sm);
+  cursor: pointer;
+  border: 0;
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-btn-line);
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  will-change: transform;
+  transition: all 0.2s ease;
+
+  i {
+    position: relative;
+    margin-right: var(--space-4xs);
+  }
+
+  &.btn-full-width {
+    width: 100%;
+  }
+
+  &.btn-icon-right {
+    i {
+      order: 1;
+      margin-right: 0;
+      margin-left: var(--space-4xs);
+    }
+
+    .btn-label {
+      order: 0;
+    }
+  }
+
+  &.btn-size-sm {
+    font-size: var(--text-xs);
+    padding: var(--space-3xs) var(--space-2xs);
+  }
+
+  &.btn-size-lg {
+    font-size: var(--text-base);
+    padding: var(--space-2xs) var(--space-sm);
+  }
+
+  &:hover,
+  &:focus-within {
+    background-color: var(--color-btn-hover-bg);
+    box-shadow: inset 0px 1px 0px rgba(var(--color-white-rgb), 0.15),
+      0px 1px 2px rgba(var(--color-primary-darker-rgb), 0.25),
+      0px 1px 4px rgba(var(--color-primary-darker-rgb), 0.1),
+      0px 3px 6px -2px rgba(var(--color-primary-darker-rgb), 0.25);
+  }
+
+  &.btn-outlined {
+    --color-btn-bg: rgba(0, 0, 0, 0);
+    --color-btn-text: var(--color-primary);
+    --color-btn-hover-bg: rgba(var(--color-primary-rgb), 0.1);
+    --color-btn-line: var(--color-contrast-low);
+
+    &:hover,
+    &:focus-within {
+      box-shadow: none;
+    }
+
+    &:disabled {
+      --color-btn-text: var(--color-contrast-low);
+      --color-btn-line: rgba(var(--color-contrast-low-rgb), 0.25);
+      --color-btn-bg: none;
+      --color-btn-hover-bg: none;
+    }
+  }
+
+  &.btn-text {
+    --color-btn-line: transparent;
+    --color-btn-bg: none;
+    --color-btn-text: var(--color-primary);
+    --color-btn-hover-bg: rgba(var(--color-primary-rgb), 0.1);
+
+    &:hover,
+    &:focus-within {
+      box-shadow: none;
+    }
+
+    &:disabled {
+      --color-btn-text: var(--color-contrast-low);
+      --color-btn-line: rgba(var(--color-contrast-low-rgb), 0.25);
+      --color-btn-bg: none;
+      --color-btn-hover-bg: none;
+    }
+  }
+}
+
+$buttonStyle: ("primary", "secondary", "success", "danger", "warning", "focus");
+
+.btn {
+  @each $value in $buttonStyle {
+    &.btn-#{$value} {
+      --color-btn-line: var(--color-#{$value});
+
+      @if $value == "warning" {
+        --color-btn-text: rgba(var(--color-black-rgb), 0.7);
+      } @else {
+        --color-btn-text: var(--color-white);
+      }
+      --color-btn-bg: var(--color-#{$value});
+      --color-btn-hover-line: var(--color-#{$value}-dark);
+      --color-btn-hover-bg: var(--color-#{$value}-dark);
+
+      &:disabled {
+        cursor: default;
+        pointer-events: none;
+        --color-btn-text: var(--color-contrast-low);
+        --color-btn-bg: rgba(var(--color-contrast-low-rgb), 0.25);
+        --color-btn-line: rgba(var(--color-contrast-low-rgb), 0.25);
+        --color-btn-hover-bg: none;
+      }
+
+      &:hover,
+      &:focus-within {
+        border-color: var(--color-btn-hover-line);
+        background-color: var(--color-btn-hover-bg);
+        box-shadow: inset 0px 1px 0px rgba(var(--color-white-rgb), 0.15),
+          0px 1px 2px rgba(var(--color-#{$value}-darker-rgb), 0.25),
+          0px 1px 4px rgba(var(--color-#{$value}-darker-rgb), 0.1),
+          0px 3px 6px -2px rgba(var(--color-#{$value}-darker-rgb), 0.25);
+      }
+
+      &.btn-outlined {
+        --color-btn-bg: rgba(0, 0, 0, 0);
+        --color-btn-text: var(--color-#{$value});
+        --color-btn-hover-bg: rgba(var(--color-#{$value}-rgb), 0.1);
+        --color-btn-line: var(--color-contrast-low);
+
+        &:hover,
+        &:focus-within {
+          box-shadow: none;
+        }
+
+        &:disabled {
+          --color-btn-text: var(--color-contrast-low);
+          --color-btn-line: rgba(var(--color-contrast-low-rgb), 0.25);
+          --color-btn-bg: none;
+          --color-btn-hover-bg: none;
+        }
+      }
+
+      &.btn-text {
+        --color-btn-line: transparent;
+        --color-btn-bg: none;
+        --color-btn-text: var(--color-#{$value});
+        --color-btn-hover-line: transparent;
+        --color-btn-hover-bg: rgba(var(--color-#{$value}-rgb), 0.1);
+
+        &:hover,
+        &:focus-within {
+          box-shadow: none;
+        }
+
+        &:disabled {
+          --color-btn-text: var(--color-contrast-low);
+          --color-btn-line: none;
+          --color-btn-bg: none;
+          --color-btn-hover-bg: none;
+        }
+      }
+    }
+  }
+}
+
+// button group
+
+.btn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2xs);
+
+  &.align-left {
+    justify-content: flex-start;
+  }
+
+  &.align-center {
+    justify-content: center;
+  }
+}

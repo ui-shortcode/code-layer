@@ -1,0 +1,17 @@
+<% const documentTitle = locals.documentTitle ? locals.documentTitle : 'Document' %>
+<%- include('../010_head/_head.html', { documentTitle: documentTitle }) %>
+
+  <div id="wrap">
+    <%- include('../010_head/_header.html') %>
+
+      <main>
+        <div id="content">
+          <!-- app-viewer-wrap -->
+          <div class="app-viewer-wrap">
+            <%- include('../app-include/_app-header.html') %>
+              <%- include('../app-include/_app-sidebar.html') %>
+
+                <div class="app-canvas">
+                  <h1 class="app-preview-title"><%= documentTitle %></h1>
+
+                  <section class="app-preview-inner">

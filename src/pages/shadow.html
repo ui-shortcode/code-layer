@@ -1,0 +1,17 @@
+<%- include('../00_include/app-include/_app-container-header.html', { documentTitle : 'BoxShadow', activeSubNav : 'shadow', bodyClass: 'app-view' }) %>
+
+    <!-- app-shadow-list -->
+    <div class="app-shadow-list">
+      <% const boxShadow = ['ring','xs', 'sm', 'md', 'lg', 'xl'] %>
+      <% for(var i = 0 ; i < boxShadow.length; i++) { %>
+      <!-- app-shadow-item -->
+      <div class="app-preview-item">
+        <div class="app-preview" style="box-shadow:var(--shadow-<%= boxShadow[i] %>);"></div>
+        <div class="app-preview-value">var(--shadow-<%= boxShadow[i] %>)</div>
+      </div>
+      <!-- // app-shadow-item -->
+      <% } %>
+    </div>
+    <!-- // app-shadow-list -->
+
+<%- include('../00_include/app-include/_app-container-footer.html') %>

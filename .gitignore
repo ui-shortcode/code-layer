@@ -1,0 +1,15 @@
+# OS/Editor files
+.DS_Store
+.vscode/
+
+# Static CSS
+/static
+
+# Node modules
+node_modules
+
+dist
+
+*.zip
+
+gulp.cmd

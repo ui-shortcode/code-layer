@@ -1,0 +1,387 @@
+@use "sass:math";
+@use "sass:string";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+
+// colors
+$colors: (
+  "default": (
+    "primary": (
+      "darker": #0d4091,
+      "dark": #0e4aa4,
+      "base": #1159c5,
+      "light": #4d8eef,
+      "lighter": #77a9f3,
+    ),
+    "secondary": (
+      "darker": #51575e,
+      "dark": #5a636a,
+      "base": #6c757d,
+      "light": #8c939a,
+      "lighter": #adb3b8,
+    ),
+    "success": (
+      "darker": #13795b,
+      "dark": #168b69,
+      "base": #1aa179,
+      "light": #4dbf98,
+      "lighter": #79d4b2,
+    ),
+    "info": (
+      "darker": #007475,
+      "dark": #008686,
+      "base": #009c9d,
+      "light": #33b2b2,
+      "lighter": #66c8c8,
+    ),
+    "danger": (
+      "darker": #b70b3e,
+      "dark": #cf0c47,
+      "base": #e70d4f,
+      "light": #f32b67,
+      "lighter": #f4487c,
+    ),
+    "warning": (
+      "darker": #db8b1a,
+      "dark": #e79e36,
+      "base": #edb464,
+      "light": #f1c588,
+      "lighter": #f5d7ad,
+    ),
+    "focus": (
+      "darker": #7230b5,
+      "dark": #8743d1,
+      "base": #a370f7,
+      "light": #b88df9,
+      "lighter": #d1b6fb,
+    ),
+    "contrast": (
+      "higher": #14151a,
+      "high": #37383f,
+      "medium": #73757d,
+      "low": #a2a2a9,
+      "lower": #d7d7da,
+    ),
+    "bg": (
+      "darker": #e4e4e7,
+      "dark": #f2f2f3,
+      "base": #ffffff,
+      "light": #ffffff,
+      "lighter": #ffffff,
+    ),
+    "white": (
+      "base": #fff,
+    ),
+    "black": (
+      "base": #000,
+    ),
+  ),
+  "dark-theme": (
+    "primary": (
+      "darker": #003d9e,
+      "dark": #0047b3,
+      "base": #0056d6,
+      "light": #3d8bff,
+      "lighter": #6ba6ff,
+    ),
+    "secondary": (
+      "darker": #51575e,
+      "dark": #5a636a,
+      "base": #6c757d,
+      "light": #8c939a,
+      "lighter": #adb3b8,
+    ),
+    "success": (
+      "darker": #13795b,
+      "dark": #168b69,
+      "base": #1aa179,
+      "light": #4dbf98,
+      "lighter": #79d4b2,
+    ),
+    "info": (
+      "darker": #007475,
+      "dark": #008686,
+      "base": #009c9d,
+      "light": #33b2b2,
+      "lighter": #66c8c8,
+    ),
+    "danger": (
+      "darker": #c90842,
+      "dark": #e60a4c,
+      "base": #f61e5f,
+      "light": #f73b73,
+      "lighter": #f85485,
+    ),
+    "warning": (
+      "darker": #db8b1a,
+      "dark": #e79e36,
+      "base": #edb464,
+      "light": #f1c588,
+      "lighter": #f5d7ad,
+    ),
+    "focus": (
+      "darker": #7230b5,
+      "dark": #8743d1,
+      "base": #a370f7,
+      "light": #b88df9,
+      "lighter": #d1b6fb,
+    ),
+    "contrast": (
+      "higher": #fafaff,
+      "high": #cfcfd3,
+      "medium": #8e9195,
+      "low": #65656c,
+      "lower": #3e3e46,
+    ),
+    "bg": (
+      "lighter": #34353c,
+      "light": #2d2d34,
+      "base": #22232a,
+      "dark": #1a1a1e,
+      "darker": #131316,
+    ),
+    "white": (
+      "base": #fff,
+    ),
+    "black": (
+      "base": #000,
+    ),
+  ),
+) !default;
+
+// font-family
+$font-family: (
+  "primary": "'Pretendard', system-ui, sans-serif",
+  "secondary": "'Poppins', system-ui, sans-serif",
+  "mono": "monospace, system-ui, sans-serif",
+  "system-ui": "system-ui,sans-serif",
+) !default;
+
+// breakpoints
+$breakpoints: (
+  "xs": "32rem",
+  "sm": "48rem",
+  "md": "64rem",
+  "lg": "80rem",
+  "xl": "90rem",
+) !default;
+
+@mixin min-width($breakpoint) {
+  @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin max-width($breakpoint) {
+  @media not all and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+    @content;
+  }
+}
+
+// font-size
+$font-size: (
+  "mw": (
+    "3xs": "0.5rem",
+    "2xs": "0.625rem",
+    "xs": "0.7rem",
+    "sm": "0.875rem",
+    "base": "1rem",
+    "md": "1.1875rem",
+    "lg": "1.4375rem",
+    "xl": "1.75rem",
+    "2xl": "2.0625rem",
+    "3xl": "2.5rem",
+    "4xl": "3rem",
+    "5xl": "3.625rem",
+  ),
+  "pc": (
+    "3xs": "0.5rem",
+    "2xs": "0.625rem",
+    "xs": "0.75rem",
+    "sm": "0.9375rem",
+    "base": "1.125rem",
+    "md": "1.375rem",
+    "lg": "1.75rem",
+    "xl": "2.1875rem",
+    "2xl": "2.75rem",
+    "3xl": "3.4375rem",
+    "4xl": "4.25rem",
+    "5xl": "5.3125rem",
+  ),
+) !default;
+
+// line-height
+$line-height: (
+  "xs": "1.1",
+  "sm": "1.2",
+  "md": "1.4",
+  "lg": "1.58",
+  "xl": "1.72",
+) !default;
+
+// space
+$space: (
+  "mw": (
+    "4xs": "calc(var(--space-unit)*0.125)",
+    "3xs": "calc(var(--space-unit)*0.25)",
+    "2xs": "calc(var(--space-unit)*0.375)",
+    "xs": "calc(var(--space-unit)*0.5)",
+    "sm": "calc(var(--space-unit)*0.75)",
+    "md": "calc(var(--space-unit)*1.25)",
+    "lg": "calc(var(--space-unit)*2)",
+    "xl": "calc(var(--space-unit)*3.25)",
+    "2xl": "calc(var(--space-unit)*5.25)",
+    "3xl": "calc(var(--space-unit)*8.5)",
+    "4xl": "calc(var(--space-unit)*13.75)",
+    "component-padding": "var(--space-md)",
+  ),
+  "pc": (
+    "4xs": "calc(var(--space-unit)*0.1875)",
+    "3xs": "calc(var(--space-unit)*0.375)",
+    "2xs": "calc(var(--space-unit)*0.5625)",
+    "xs": "calc(var(--space-unit)*0.75)",
+    "sm": "calc(var(--space-unit)*1.125)",
+    "md": "calc(var(--space-unit)*1.875)",
+    "lg": "calc(var(--space-unit)*3)",
+    "xl": "calc(var(--space-unit)*4.875)",
+    "2xl": "calc(var(--space-unit)*7.875)",
+    "3xl": "calc(var(--space-unit)*12.75)",
+    "4xl": "calc(var(--space-unit)*20.625)",
+  ),
+) !default;
+
+// radius
+$radius: (
+  "sm": "calc(var(--radius-md)/2)",
+  "md": "0.375em",
+  "lg": "calc(var(--radius-md)*2)",
+  "full": "50%",
+) !default;
+
+//shadow
+$shadow: (
+  "ring": "0 0 0 1px rgba(var(--color-black-rgb),0.05)",
+  "xs":
+    "0 0 0 1px rgba(var(--color-black-rgb),0.02),0 1px 3px -1px rgba(var(--color-black-rgb),0.2)",
+  "sm":
+    "0 0.3px 0.4px rgba(var(--color-black-rgb),0.02),0 0.9px 1.5px rgba(var(--color-black-rgb),0.045),0 3.5px 6px rgba(var(--color-black-rgb),0.09)",
+  "md":
+    " 0 0.9px 1.25px rgba(var(--color-black-rgb),0.025),0 3px 5px rgba(var(--color-black-rgb),0.05),0 12px 20px rgba(var(--color-black-rgb),0.09)",
+  "lg":
+    "0 1.2px 1.9px -1px rgba(var(--color-black-rgb),0.01),0 3px 5px -1px rgba(var(--color-black-rgb),0.015),0 8px 15px -1px rgba(var(--color-black-rgb),0.05),0 28px 40px -1px rgba(var(--color-black-rgb),0.1)",
+  "xl":
+    "0 1.5px 2.1px -6px rgba(var(--color-black-rgb),0.009),0 3.6px 5.2px -6px rgba(var(--color-black-rgb),0.0115),0 7.3px 10.6px -6px rgba(var(--color-black-rgb),0.0125),0 16.2px 21.9px -6px rgba(var(--color-black-rgb),0.025),0 46px 60px -6px rgba(var(--color-black-rgb),0.15)",
+) !default;
+
+// innerglow
+$inner-glow: (
+  "glow": "inset 0 0 0.5px 1px hsla(var(--color-white-hsl),0.075)",
+  "glow-top": "inset 0 1px 0.5px hsla(var(--color-white-hsl),0.075)",
+) !default;
+
+// ease
+$ease: (
+  "in-out": "cubic-bezier(0.645,0.045,0.355,1)",
+  "in": "cubic-bezier(0.55,0.055,0.675,0.19)",
+  "out": "cubic-bezier(0.215,0.61,0.355,1)",
+  "out-back": "cubic-bezier(0.34,1.56,0.64,1)",
+) !default;
+
+// aspect-ratio
+$aspect-ratio: (16 9, 3 2, 4 3, 5 4, 1 1, 4 5, 3 4, 2 3, 9 16) !default;
+
+// media-wrapper
+$media-wrapper: (16 9, 3 2, 4 3, 1 1) !default;
+
+// function & mixins
+@function to-number($value) {
+  @if type-of($value) == "number" {
+    @return $value;
+  } @else if type-of($value) != "string" {
+    $_: log("Value for `to-number` should be a number or a string.");
+  }
+
+  $result: 0;
+  $digits: 0;
+  $minus: str-slice($value, 1, 1) == "-";
+  $numbers: (
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+  );
+
+  @for $i from if($minus, 2, 1) through str-length($value) {
+    $character: str-slice($value, $i, $i);
+
+    @if not(index(map-keys($numbers), $character) or $character == ".") {
+      @return to-length(if($minus, -$result, $result), str-slice($value, $i));
+    }
+
+    @if $character == "." {
+      $digits: 1;
+    } @else if $digits == 0 {
+      $result: $result * 10 + map-get($numbers, $character);
+    } @else {
+      $digits: $digits * 10;
+      $result: $result + math.div(map-get($numbers, $character), $digits);
+    }
+  }
+
+  @return if($minus, -$result, $result);
+}
+
+// reset user agent style
+@mixin reset {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  line-height: inherit;
+  appearance: none;
+}
+
+// accessibility → hide
+@mixin srHide {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
+
+// accessibility → show
+@mixin srShow {
+  position: static;
+  clip: auto;
+  clip-path: none;
+}
+
+// edit font rendering
+@mixin fontSmooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// triangle
+@mixin triangle($direction: up, $width: 12px, $color: red) {
+  width: 0;
+  height: 0;
+  border: $width solid transparent;
+
+  @if ($direction == left) {
+    border-right-color: $color;
+  } @else if($direction == right) {
+    border-left-color: $color;
+  } @else if($direction == down) {
+    border-top-color: $color;
+  } @else {
+    border-bottom-color: $color;
+  }
+}

@@ -1,0 +1,7 @@
+<%- include('../../00_include/app-include/_app-container-header.html', { documentTitle : 'Checkbox' , activeSubNav
+  : 'component-checkbox' , bodyClass: 'components-view' }) %>
+
+  <%- include('./atomic_checkbox.ejs', { lists: ['Option 1', 'Option 2', 'Option 3'] }) %>
+  <%- include('./atomic_checkbox.ejs', { lists: ['apple'], onlyCheckbox: false }) %>
+
+<%- include('../../00_include/app-include/_app-container-footer.html') %>

@@ -1,0 +1,16 @@
+<%- include('../00_include/app-include/_app-container-header.html', { documentTitle : 'Border Radius' , activeSubNav
+  : 'border-radius', bodyClass: 'app-view' }) %>
+
+  <div class="app-border-radius-list">
+    <% const borderRadiusList = ['sm', 'md', 'lg', 'full'] %>
+    <% for(var i=0 ; i < borderRadiusList.length; i++) { %>
+    <!-- app-shadow-item -->
+    <div class="app-preview-item">
+      <div class="app-preview" style="border-radius:var(--radius-<%= borderRadiusList[i] %>);"></div>
+      <div class="app-preview-value">var(--radius-<%= borderRadiusList[i] %>)</div>
+    </div>
+    <!-- // app-shadow-item -->
+    <% } %>
+  </div>
+
+  <%- include('../00_include/app-include/_app-container-footer.html') %>

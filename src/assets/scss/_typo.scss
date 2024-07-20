@@ -1,0 +1,43 @@
+@use "./config" as *;
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--color-contrast-high);
+  font-family: var(--font-primary);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-contrast-higher);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--text-2xl);
+  letter-spacing: -0.4px;
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-lg);
+}
+
+h4 {
+  font-size: var(--text-md);
+}
+
+small {
+  font-size: var(--text-sm);
+}

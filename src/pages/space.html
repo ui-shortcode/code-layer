@@ -1,0 +1,19 @@
+<%- include('../00_include/app-include/_app-container-header.html', { documentTitle : 'Space', activeSubNav : 'space', bodyClass: 'app-view' }) %>
+
+  <!-- app-space-list -->
+  <div class="app-space-list">
+    <% const spaceLists = ['4xs', '3xs', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] %>
+
+    <% for(var i = 0; i < spaceLists.length; i++) {%>
+    <!-- app-space-item -->
+    <div class="app-preview-item">
+      <div class="app-preview" style="width:var(--space-<%= spaceLists[i] %>);"></div>
+      <div class="app-preview-value">var(--space-<%= spaceLists[i] %>)</div>
+    </div>
+    <!-- // app-space-item -->
+    <% } %>
+  </div>
+  <!-- // app-space-list -->
+                  
+<%- include('../00_include/app-include/_app-container-footer.html') %>
+                

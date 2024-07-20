@@ -1,0 +1,144 @@
+@use "./config" as *;
+@use "sass:math";
+@use "sass:string";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+
+// variables
+@each $theme, $color-array in $colors {
+  $theme-selector: "[data-theme=#{$theme}]";
+  @if $theme == "default" {
+    $theme-selector: ":root, [data-theme='default']";
+  }
+
+  #{$theme-selector} {
+    @each $main-color, $variation-array in $color-array {
+      @each $variation, $hex in $variation-array {
+        $appendix: #{"-" + $variation};
+        @if $appendix == "-base" {
+          $appendix: "";
+        }
+
+        $red: red($hex);
+        $green: green($hex);
+        $blue: blue($hex);
+
+        --color-#{$main-color}#{$appendix}-rgb: #{$red}, #{$green}, #{$blue};
+        --color-#{$main-color}#{$appendix}: #{$hex};
+      }
+    }
+  }
+}
+
+// root
+:root {
+  // font-family
+  @each $name, $value in $font-family {
+    --font-#{$name}: #{$value};
+  }
+
+  // font-size
+  $mw-font-size: map.get($font-size, "mw");
+  @each $name, $value in $mw-font-size {
+    --text-#{$name}: #{$value};
+  }
+
+  // line-height
+  @each $name, $value in $line-height {
+    --line-height-#{$name}: #{$value};
+  }
+
+  // space
+  --space-unit: 1rem;
+  $mw-space: map.get($space, "mw");
+  @each $name, $value in $mw-space {
+    @if $name == "component-padding" {
+      --#{$name}: #{$value};
+    } @else {
+      --space-#{$name}: #{$value};
+    }
+  }
+
+  // radius
+  @each $name, $value in $radius {
+    --radius-#{$name}: #{$value};
+  }
+
+  // shadow
+  @each $name, $value in $shadow {
+    --shadow-#{$name}: #{$value};
+  }
+
+  // inner-glow
+  @each $name, $value in $inner-glow {
+    --inner-#{$name}: #{$value};
+  }
+
+  // ease
+  @each $name, $value in $ease {
+    --ease-#{$name}: #{$value};
+  }
+}
+
+// pc : min-width
+@include min-width("md") {
+  :root {
+    // font-size
+    $pc-font-size: map.get($font-size, "pc");
+    @each $name, $value in $pc-font-size {
+      --text-#{$name}: #{$value};
+    }
+
+    // space
+    $pc-space: map.get($space, "pc");
+    @each $name, $value in $pc-space {
+      --space-#{$name}: #{$value};
+    }
+  }
+}
+
+//////////////////////////////////////////////////////
+
+// utility : classes
+
+// aspect-ratio
+@each $width, $height in $aspect-ratio {
+  .aspect-ratio-#{$width}\:#{$height} {
+    aspect-ratio: #{$width}/#{$height};
+  }
+}
+
+// media wrapper
+:where([class^="media-wrapper"], [class*=" media-wrapper"]) {
+  position: relative;
+}
+
+[class^="media-wrapper"],
+[class*="media-wrapper"] {
+  height: 0;
+}
+
+[class^="media-wrapper"] > *,
+[class*="media-wrapper"] > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+[class^="media-wrapper"] > *:not(iframe),
+[class*="media-wrapper"] > *:not(iframe) {
+  object-fit: cover;
+}
+
+@each $width, $height in $media-wrapper {
+  .media-wrapper-#{$width}\:#{$height} {
+    padding-bottom: math.div($height, $width) * 100%;
+  }
+}
+
+.sr-hide {
+  @include srHide();
+}

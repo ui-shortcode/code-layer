@@ -1,4 +1,4 @@
-<%- include('../00_include/app-include/_app-container-header.html', { documentTitle : 'Heading', activeSubNav : 'heading', bodyClass: 'app-view' }) %>
+<%- include("../00_include/app-include/_app-iframe-head.html") %>
 
   <!-- app-heading-list -->
   <div class="app-typography-list">
@@ -19,10 +19,10 @@
       <div class="app-preview-value">h4</div>
     </div>
     <div class="app-preview-item">
-      <p>모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를 인정하는</p>
-      <div class="app-preview-value">default</div>
+      <p style="font-size: var(--text-base);">모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를 인정하는</p>
+      <div class="app-preview-value">default : var(--text-base)</div>
     </div>
   </div>
   <!-- // app-heading-list -->
 
-  <%- include('../00_include/app-include/_app-container-footer.html') %>
+<%- include("../00_include/app-include/_app-iframe-foot.html") %>

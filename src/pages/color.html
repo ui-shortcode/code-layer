@@ -1,28 +1,29 @@
-<%- include('../00_include/app-include/_app-container-header.html', { documentTitle : 'Color', activeSubNav : 'color', bodyClass: 'app-view' }) %>
+<%- include("../00_include/app-include/_app-iframe-head.html") %>
 
-  <% const colorLists=['primary', 'secondary' , 'success' , 'danger' , 'warning' , 'info' , 'focus' , 'bg' , 'contrast' ];
-    const colorDepthTitle=['darker', 'dark' , 'medium' , 'light' , 'lighter' ]; const colorContrast=['higher', 'high'
-    , 'medium' , 'low' , 'lower' ]; %>
-  <% for(var i = 0; i < colorLists.length; i++ ) { %>
+  <% 
+    const colorLists=['primary', 'secondary' , 'success' , 'danger' , 'warning' , 'info' , 'focus' , 'bg' , 'contrast' ];
+    const colorDepthTitle=['darker', 'dark' , 'medium' , 'light' , 'lighter' ];
+    const colorContrast=['higher', 'high', 'medium' , 'low' , 'lower' ]; 
+  %>
+
+  <% for(var i=0; i < colorLists.length; i++ ) { %>
   <h2 class="app-preview-title">--color-<%= colorLists[i] %></h2>
   <div class="app-color-list">
-    <% for(var j = 0; j < colorDepthTitle.length; j++) { %>
-    <%
-      var colorVariable = '--color-' + colorLists[i] + '-' + colorDepthTitle[j];
-
-      if(colorLists[i] == 'contrast') {
-        colorVariable = '--color-contrast-' + colorContrast[j];
-      } else {
-        if(colorDepthTitle[j] == 'medium') colorVariable = '--color-' + colorLists[i];
-      }
+    <% for(var j=0; j < colorDepthTitle.length; j++) { %>
+    <% 
+      var colorVariable='--color-' + colorLists[i] + '-' + colorDepthTitle[j]; if(colorLists[i]=='contrast' ) {
+      colorVariable='--color-contrast-' + colorContrast[j]; } else { if(colorDepthTitle[j]=='medium' )
+      colorVariable='--color-' + colorLists[i]; }
     %>
     <div role="button" class="app-preview-item" data-value="<%= colorVariable %>">
       <div class="app-preview" style="background-color: var(<%= colorVariable %>);"></div>
-      <div class="app-preview-variable"><%= colorVariable %></div>
+      <div class="app-preview-variable">
+        <%= colorVariable %>
+      </div>
       <div class="app-preview-value <%= colorVariable %>"></div>
     </div>
     <% } %>
   </div>
   <% } %>
 
-<%- include('../00_include/app-include/_app-container-footer.html') %>
+<%- include("../00_include/app-include/_app-iframe-foot.html") %>

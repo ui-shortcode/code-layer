@@ -1,0 +1,27 @@
+<% const iframeInner = locals.iframeInner ? locals.iframeInner : false %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://unpkg.com/" crossorigin>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <% if(iframeInner) {%>
+  <link rel="stylesheet" href="../../assets/css/style-guide.css">
+  <script src="../../assets/js/prism.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+  <% } else { %>
+  <link rel="stylesheet" href="../assets/css/style-guide.css">
+  <script src="../assets/js/prism.js"></script>
+  <script src="../assets/js/ui.js"></script>
+  <% } %>
+</head>
+
+<body class="iframe-inner-view">
+  <div id="wrap">
+    <main>
+      <div id="content">
+        <div class="app-preview-wrapper">

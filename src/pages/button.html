@@ -1,4 +1,4 @@
-<%- include('../00_include/app-include/_app-container-header.html', { documentTitle : 'Button', activeSubNav : 'button', bodyClass: 'app-view' }) %>
+<%- include("../00_include/app-include/_app-iframe-head.html") %>
 
     <div class="app-button-list">
         <% const buttonLists = ['primary','secondary','success','focus', 'danger','warning']; %>
@@ -61,5 +61,5 @@
         </div>
         <% } %>
     </div>
-    
-<%- include('../00_include/app-include/_app-container-footer.html') %>
+
+    <%- include("../00_include/app-include/_app-iframe-foot.html") %>

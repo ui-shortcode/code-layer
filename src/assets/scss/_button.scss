@@ -10,6 +10,8 @@
   --color-btn-text: var(--color-white);
   --color-btn-bg: var(--color-primary);
   --color-btn-hover-bg: var(--color-primary-darker);
+  --color-btn-darker-line: var(--color-primary-darker);
+
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -19,6 +21,7 @@
   appearance: none;
   font-size: var(--text-sm);
   padding: var(--space-2xs) var(--space-sm);
+  height: 40px;
   cursor: pointer;
   border: 0;
   white-space: nowrap;
@@ -51,11 +54,13 @@
   }
 
   &.btn-size-sm {
+    height: 30px;
     font-size: var(--text-xs);
     padding: var(--space-3xs) var(--space-2xs);
   }
 
   &.btn-size-lg {
+    height: 45px;
     font-size: var(--text-base);
     padding: var(--space-2xs) var(--space-sm);
   }
@@ -63,10 +68,10 @@
   &:hover,
   &:focus-within {
     background-color: var(--color-btn-hover-bg);
-    box-shadow: inset 0px 1px 0px rgba(var(--color-white-rgb), 0.15),
-      0px 1px 2px rgba(var(--color-primary-darker-rgb), 0.25),
-      0px 1px 4px rgba(var(--color-primary-darker-rgb), 0.1),
-      0px 3px 6px -2px rgba(var(--color-primary-darker-rgb), 0.25);
+    // box-shadow: inset 0px 1px 0px rgba(var(--color-white-rgb), 0.15),
+    //   0px 1px 2px rgba(var(--color-primary-darker-rgb), 0.25),
+    //   0px 1px 4px rgba(var(--color-primary-darker-rgb), 0.1),
+    //   0px 3px 6px -2px rgba(var(--color-primary-darker-rgb), 0.25);
   }
 
   &.btn-outlined {
@@ -114,6 +119,7 @@ $buttonStyle: ("primary", "secondary", "success", "danger", "warning", "focus");
   @each $value in $buttonStyle {
     &.btn-#{$value} {
       --color-btn-line: var(--color-#{$value});
+      --color-btn-darker-line: var(--color-#{$value}-darker);
 
       @if $value == "warning" {
         --color-btn-text: rgba(var(--color-black-rgb), 0.7);
@@ -137,10 +143,10 @@ $buttonStyle: ("primary", "secondary", "success", "danger", "warning", "focus");
       &:focus-within {
         border-color: var(--color-btn-hover-line);
         background-color: var(--color-btn-hover-bg);
-        box-shadow: inset 0px 1px 0px rgba(var(--color-white-rgb), 0.15),
-          0px 1px 2px rgba(var(--color-#{$value}-darker-rgb), 0.25),
-          0px 1px 4px rgba(var(--color-#{$value}-darker-rgb), 0.1),
-          0px 3px 6px -2px rgba(var(--color-#{$value}-darker-rgb), 0.25);
+        // box-shadow: inset 0px 1px 0px rgba(var(--color-white-rgb), 0.15),
+        //   0px 1px 2px rgba(var(--color-#{$value}-darker-rgb), 0.25),
+        //   0px 1px 4px rgba(var(--color-#{$value}-darker-rgb), 0.1),
+        //   0px 3px 6px -2px rgba(var(--color-#{$value}-darker-rgb), 0.25);
       }
 
       &.btn-outlined {
@@ -185,7 +191,7 @@ $buttonStyle: ("primary", "secondary", "success", "danger", "warning", "focus");
   }
 }
 
-// button group
+// button wrap
 
 .btn-wrap {
   display: flex;
@@ -199,5 +205,48 @@ $buttonStyle: ("primary", "secondary", "success", "danger", "warning", "focus");
 
   &.align-center {
     justify-content: center;
+  }
+}
+
+// button group
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+
+  &.align-center {
+    justify-content: center;
+  }
+
+  &.align-right {
+    justify-content: flex-end;
+  }
+
+  .btn {
+    margin: 0;
+
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &.btn-outlined {
+      &:first-child {
+        border-right: 0;
+      }
+
+      &:last-child {
+        border-left: 0;
+      }
+    }
   }
 }

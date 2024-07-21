@@ -99,6 +99,32 @@
 }
 
 //////////////////////////////////////////////////////
+// sementic color
+
+@each $theme, $color-array in $colors {
+  @debug $theme;
+  @if $theme == "default" {
+    @each $main-color, $variation-array in $color-array {
+      @each $variation, $hex in $variation-array {
+        $appendix: #{"-" + $variation};
+        @if $appendix == "-base" {
+          $appendix: "";
+        }
+
+        .text-#{$main-color}#{$appendix} {
+          color: var(--color-#{$main-color}#{$appendix});
+        }
+
+        .bg-#{$main-color}#{$appendix} {
+          @include get-color-yiq($hex);
+          background-color: var(--color-#{$main-color}#{$appendix});
+        }
+      }
+    }
+  }
+}
+
+//////////////////////////////////////////////////////
 
 // utility : classes
 

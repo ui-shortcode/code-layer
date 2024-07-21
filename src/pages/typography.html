@@ -1,18 +1,28 @@
-<%- include('../00_include/app-include/_app-container-header.html', { documentTitle : 'Typography', activeSubNav : 'typography', bodyClass: 'app-view' }) %>
+<%- include("../00_include/app-include/_app-iframe-head.html") %>
 
   <!-- app-typography-list -->
   <div class="app-typography-list">
     <% const textSizeLists=['3xs', '2xs', 'xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl'] %>
+    <% const textColorLists=['primary', 'secondary', 'success', 'danger', 'warning', 'focus', 'contrast-medium', 'primary', 'secondary', 'success', 'danger', 'warning'] %>
   
       <% for(var i=0; i < textSizeLists.length; i++) {%>
         <!-- app-preview-item -->
         <div class="app-preview-item">
-          <div class="app-preview" style="font-size:var(--text-<%= textSizeLists[i] %>);">모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를 인정하는</div>
-          <div class="app-preview-value">var(--text-<%= textSizeLists[i] %>)</div>
+          <div class="app-preview" style="font-size:var(--text-<%= textSizeLists[i] %>);color: var(--color-<%= textColorLists[i] %>)">모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를 인정하는</div>
+          <div class="app-preview-value">var(--text-<%= textSizeLists[i] %>) / color: var(--color-<%= textColorLists[i]%>)</div>
         </div>
         <!-- // app-preview-item -->
-        <% } %>
+      <% } %>
+  
+      <% for(var i=0; i < textSizeLists.length; i++) {%>
+        <!-- app-preview-item -->
+        <div class="app-preview-item">
+          <div class="app-preview bg-<%= textColorLists[i]%>" style="font-size:var(--text-<%= textSizeLists[i] %>);">모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를 인정하는</div>
+          <div class="app-preview-value">var(--text-<%= textSizeLists[i] %>) / color: var(--color-<%= textColorLists[i]%>)</div>
+        </div>
+        <!-- // app-preview-item -->
+      <% } %>
   </div>
   <!-- // app-typography-list -->
 
-<%- include('../00_include/app-include/_app-container-footer.html') %>
+<%- include("../00_include/app-include/_app-iframe-foot.html") %>

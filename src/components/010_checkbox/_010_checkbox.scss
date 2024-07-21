@@ -52,3 +52,32 @@
     margin-left: var(--space-sm);
   }
 }
+
+.field-wrapper {
+  .field-title {
+    padding-bottom: var(--space-sm);
+  }
+
+  .help-text {
+    margin-top: var(--space-sm);
+    font-size: var(--text-xs);
+  }
+
+  &.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+
+    .field-title {
+      padding-bottom: 0;
+    }
+
+    .field-checkbox {
+      margin-left: 0;
+    }
+
+    .help-text {
+      margin-top: 0;
+    }
+  }
+}

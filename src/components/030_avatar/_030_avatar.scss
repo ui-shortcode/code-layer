@@ -1,0 +1,52 @@
+@use "../../assets/scss/config" as *;
+
+.avatar-items {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  & > :not(style) {
+    margin: 0;
+
+    ~ :not(style) {
+      margin-left: var(--space-xs);
+    }
+  }
+
+  &.avatar-grouped {
+    flex-direction: row-reverse;
+    .avatar-item {
+      border: 2px solid var(--color-contrast-lower);
+      box-sizing: content-box;
+      margin-left: calc(var(--space-xs) * -1);
+    }
+  }
+}
+
+.avatar-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  padding-top: 1px;
+  font-size: var(--text-sm);
+  overflow: hidden;
+  user-select: none;
+  line-height: 100%;
+  font-weight: 700;
+
+  &.avatar-square {
+    border-radius: var(--radius-sm);
+  }
+
+  &.avatar-circular {
+    border-radius: var(--radius-full);
+  }
+
+  i {
+    font-weight: normal;
+  }
+}

@@ -221,13 +221,17 @@ main {
 
           // shadow list
           .app-shadow-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
             .app-preview-item {
               display: flex;
               flex-direction: column;
               .app-preview {
                 display: flex;
-                width: 180px;
-                height: 180px;
+                width: 200px;
+                height: 200px;
                 margin: 0 auto;
                 background-color: var(--color-white);
               }

@@ -1,0 +1,17 @@
+
+<% const variant = locals.variant ? locals.variant : 'circular' %>
+<% const letter = locals.letter ? locals.letter : '' %>
+<% const icon = locals.icon ? locals.icon : '' %>
+<% const color = locals.color ? locals.color : '' %>
+
+<div class="avatar-item avatar-<%=variant %> <% if(color != '') {%>bg-<%= color %><%}%>">
+<% if( letter == '' && icon == '') { %>
+  <img src="https://picsum.photos/seed/picsum/200/200" alt="">
+<% } else { %>
+  <% if (icon == '') { %>
+    <%= letter %>
+  <% } else { %>
+    <%- icon %>
+  <% } %>
+<% } %>
+</div>

@@ -385,3 +385,18 @@ $media-wrapper: (16 9, 3 2, 4 3, 1 1) !default;
     border-bottom-color: $color;
   }
 }
+
+// yiq
+@mixin get-color-yiq($background) {
+  $r: red($background);
+  $g: green($background);
+  $b: blue($background);
+
+  $yiq: calc((($r * 299) + ($g * 587) + ($b * 114)) / 1000);
+
+  @if ($yiq >= 128) {
+    color: #111111;
+  } @else {
+    color: #ffffff;
+  }
+}

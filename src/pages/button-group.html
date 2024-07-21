@@ -1,4 +1,4 @@
-<%- include('../00_include/app-include/_app-container-header.html', { documentTitle : 'Button Group', activeSubNav : 'button-group', bodyClass: 'app-view' }) %>
+<%- include("../00_include/app-include/_app-iframe-head.html") %>
 
   <div class="app-button-group-list">
     <div class="app-preview-inner">
@@ -33,7 +33,39 @@
         <button type="button" class="btn btn-secondary btn-text"><span class="btn-label">취소</button>
         <button type="button" class="btn"><span class="btn-label">확인</button>
       </div>
+
+      <div style="margin: 20px 0;height:1px;background-color:var(--color-contrast-lower);"></div>
+      
+      <div class="btn-group">
+        <button type="button" class="btn"><span class="btn-label">LABEL 1</button>
+        <button type="button" class="btn"><span class="btn-label">LABEL 2</button>
+        <button type="button" class="btn"><span class="btn-label">LABEL 3</button>
+      </div>
+
+      <div style="margin: 20px 0;height:1px;background-color:var(--color-contrast-lower);"></div>
+      
+      <div class="btn-group align-center">
+        <button type="button" class="btn btn-size-xs"><span class="btn-label">LABEL 1</button>
+        <button type="button" class="btn btn-size-xs"><span class="btn-label">LABEL 2</button>
+        <button type="button" class="btn btn-size-xs"><span class="btn-label">LABEL 3</button>
+      </div>
+
+      <div style="margin: 20px 0;height:1px;background-color:var(--color-contrast-lower);"></div>
+      
+      <div class="btn-group align-right">
+        <button type="button" class="btn btn-size-lg"><span class="btn-label">LABEL 1</button>
+        <button type="button" class="btn btn-size-lg"><span class="btn-label">LABEL 2</button>
+        <button type="button" class="btn btn-size-lg"><span class="btn-label">LABEL 3</button>
+      </div>
+
+      <div style="margin: 20px 0;height:1px;background-color:var(--color-contrast-lower);"></div>
+      
+      <div class="btn-group">
+        <button type="button" class="btn btn-outlined"><span class="btn-label">LABEL 1</button>
+        <button type="button" class="btn btn-outlined"><span class="btn-label">LABEL 2</button>
+        <button type="button" class="btn btn-outlined"><span class="btn-label">LABEL 3</button>
+      </div>
     </div>
   </div>
 
-  <%- include('../00_include/app-include/_app-container-footer.html') %>
+<%- include("../00_include/app-include/_app-iframe-foot.html") %>

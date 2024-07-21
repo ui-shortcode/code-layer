@@ -9,3 +9,6 @@
 @use "./app-preview";
 @use "../../components/010_checkbox/010_checkbox" as *;
 @use "../../components/020_radio/020_radio" as *;
+@use "../../components/030_avatar/030_avatar" as *;
+
+@use "./prism";

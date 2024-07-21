@@ -1,0 +1,42 @@
+<%- include("../../00_include/app-include/_app-iframe-head.html", { iframeInner: true }) %>
+
+  <h2 class="app-preview-title">Image Avatar</h2>
+  <div class="avatar-items">
+    <%- include('./atomic-avatar.ejs') %>
+    <%- include('./atomic-avatar.ejs') %>
+    <%- include('./atomic-avatar.ejs') %>
+  </div>
+
+  <h2 class="app-preview-title">Letter Avatar</h2>
+  <div class="avatar-items">
+    <%- include('./atomic-avatar.ejs', { letter: 'Y', color: 'primary' }) %>
+    <%- include('./atomic-avatar.ejs', { letter: 'O', color: 'danger' }) %>
+    <%- include('./atomic-avatar.ejs', { letter: 'WW', color: 'focus' }) %>
+  </div>
+
+  <h2 class="app-preview-title">Icon Avatar</h2>
+  <div class="avatar-items">
+    <%- include('./atomic-avatar.ejs', { icon: "<i class='bx bxs-objects-vertical-bottom'></i>", color: 'primary-dark' }) %>
+    <%- include('./atomic-avatar.ejs', { icon: "<i class='bx bx-folder-minus' ></i>", color: 'warning-darker' }) %>
+    <%- include('./atomic-avatar.ejs', { icon: "<i class='bx bxs-face' ></i>", color: 'contrast-medium' }) %>
+  </div>
+
+  <h2 class="app-preview-title">Variant</h2>
+  <div class="avatar-items">
+    <%- include('./atomic-avatar.ejs', { variant: 'square', icon: "<i class='bx bxs-objects-vertical-bottom'></i>", color: 'primary-dark' }) %>
+    <%- include('./atomic-avatar.ejs', { variant: 'square', icon: "<i class='bx bx-folder-minus' ></i>", color: 'warning-darker' }) %>
+    <%- include('./atomic-avatar.ejs', { variant: 'square', letter: 'WW', color: 'contrast-medium' }) %>
+  </div>
+
+  <h2 class="app-preview-title">Grouped</h2>
+  <div class="avatar-items avatar-grouped">
+    <%- include('./atomic-avatar.ejs', { letter: '+2', color: 'contrast-lower' }) %>
+    <%- include('./atomic-avatar.ejs') %>
+    <%- include('./atomic-avatar.ejs') %>
+    <%- include('./atomic-avatar.ejs') %>
+    <%- include('./atomic-avatar.ejs') %>
+    <%- include('./atomic-avatar.ejs') %>
+    <%- include('./atomic-avatar.ejs') %>
+  </div>
+
+<%- include("../../00_include/app-include/_app-iframe-foot.html") %>

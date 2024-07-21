@@ -1,5 +1,21 @@
-<%- include('../../00_include/app-include/_app-container-header.html', { documentTitle : 'Radio' , activeSubNav : 'component-radio' , bodyClass: 'components-view' }) %>
+<%- include("../../00_include/app-include/_app-iframe-head.html", { iframeInner: true }) %>
 
-  <%- include('./atomic_radio.ejs', { lists: ['Option 1', 'Option 2' , 'Option 3' ] }) %>
+  <h2 class="app-preview-title">only radio</h2>
+  <div class="field-wrapper">
+    <%- include('./atomic-radio.ejs', { lists: ['Option 1' ], onlyradio: true, radioName: 'group-1' }) %>
+  </div>
 
-<%- include('../../00_include/app-include/_app-container-footer.html') %>
+  <h2 class="app-preview-title">with label</h2>
+  <div class="field-wrapper">
+    <div class="field-title">Field Group Title</div>
+    <%- include('./atomic-radio.ejs', { lists: ['Option 2', 'Option 3' , 'Option 4' ], radioName: 'group-2' }) %>
+  </div>
+
+  <h2 class="app-preview-title">with label - vertical</h2>
+  <div class="field-wrapper vertical">
+    <div class="field-title">Field Group Title</div>
+    <%- include('./atomic-radio.ejs', { lists: ['Option 5', 'Option 6' , 'Option 7' ], radioName: 'group-3' }) %>
+      <p class="help-text color-danger">Help Text</p>
+  </div>
+
+  <%- include("../../00_include/app-include/_app-iframe-foot.html") %>

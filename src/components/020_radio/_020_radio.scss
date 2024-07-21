@@ -52,3 +52,27 @@
     margin-left: var(--space-sm);
   }
 }
+
+.field-wrapper {
+  .field-title {
+    padding-bottom: var(--space-sm);
+  }
+
+  &.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+
+    .field-title {
+      padding-bottom: 0;
+    }
+
+    .field-radio {
+      margin-left: 0;
+    }
+  }
+
+  .help-text {
+    font-size: var(--text-xs);
+  }
+}

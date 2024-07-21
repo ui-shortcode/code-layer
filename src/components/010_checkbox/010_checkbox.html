@@ -1,7 +1,22 @@
-<%- include('../../00_include/app-include/_app-container-header.html', { documentTitle : 'Checkbox' , activeSubNav
-  : 'component-checkbox' , bodyClass: 'components-view' }) %>
+<%- include("../../00_include/app-include/_app-iframe-head.html", { iframeInner: true }) %>
 
-  <%- include('./atomic_checkbox.ejs', { lists: ['Option 1', 'Option 2', 'Option 3'] }) %>
-  <%- include('./atomic_checkbox.ejs', { lists: ['apple'], onlyCheckbox: false }) %>
+  <h2 class="app-preview-title">only checkbox</h2>
+  <div class="field-wrapper">
+    <%- include('./atomic-checkbox.ejs', { lists: ['Option 1' ], onlyCheckbox: true }) %>
+  </div>
 
-<%- include('../../00_include/app-include/_app-container-footer.html') %>
+  <h2 class="app-preview-title">with label</h2>
+  <div class="field-wrapper">
+    <div class="field-title">Field Group Title</div>
+    <%- include('./atomic-checkbox.ejs', { lists: ['Option 2', 'Option 3' , 'Option 4' ] }) %>
+    <p class="help-text color-danger">Help Text</p>
+  </div>
+
+  <h2 class="app-preview-title">with label - vertical</h2>
+  <div class="field-wrapper vertical">
+    <div class="field-title">Field Group Title</div>
+    <%- include('./atomic-checkbox.ejs', { lists: ['Option 5', 'Option 6' , 'Option 7' ] }) %>
+    <p class="help-text color-danger">Help Text</p>
+  </div>
+
+<%- include("../../00_include/app-include/_app-iframe-foot.html") %>

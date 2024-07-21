@@ -56,12 +56,12 @@ function minifyHTML(cb) {
 
 // Scripts
 function js(cb) {
-    gulp.src("src/assets/js/*js")
+    gulp.src("src/assets/js/*.js")
         .pipe(plumber())
         .pipe(babel({
             presets: ['@babel/preset-env']
         }))
-        .pipe(concat("ui.js"))
+        // .pipe(concat("ui.js"))
         // .pipe(uglify())
         .pipe(gulp.dest("dist/assets/js"));
     cb();
